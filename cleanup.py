@@ -3,16 +3,16 @@ from . import weights
 
 
 def apply_cleanup(armature_object, chain, kept_names):
-    """
-    Final step: deletes bones that didn't survive, renames surviving
-    bones (except the root — per the compatibility requirement) with an
-    "opt_" prefix, and mirrors both changes onto every associated mesh's
-    vertex groups so they keep matching the armature's actual bone names.
+    
+    # Final step: deletes bones that didn't survive, renames surviving
+    # bones (except the root — per the compatibility requirement) with an
+    # "opt_" prefix, and mirrors both changes onto every associated mesh's
+    # vertex groups so they keep matching the armature's actual bone names.
 
-    Must be called with armature_object able to become the active
-    object; this temporarily switches into Edit Mode and restores the
-    original mode afterward.
-    """
+    # Must be called with armature_object able to become the active
+    # object; this temporarily switches into Edit Mode and restores the
+    # original mode afterward.
+    
     root_name = chain[0]
     deleted_names = [n for n in chain if n not in kept_names]
     rename_targets = [n for n in kept_names if n != root_name]
