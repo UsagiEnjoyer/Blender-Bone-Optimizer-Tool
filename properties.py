@@ -2,16 +2,13 @@ import bpy
 
 
 def on_armature_changed(self, context):
-    # this runs automatically the instant chain_opt_armature
-    # changes (that's what `update=` does — Blender calls this function
-    # for you, no manual triggering needed).
     #
     # Task: reset context.scene.chain_opt_root_bone back to empty here,
     # so a leftover bone name from the PREVIOUS armature can't linger
     # and silently point at a bone that doesn't exist on the new one.
-    #
-    # Hint: this is a one-line function body.
 
+
+    context.scene.chain_opt_root_bone = ""
 
 
 
